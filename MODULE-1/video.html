@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<label for="name">name</label><input type="text" name="" id="name">
+<label for="email">email</label><input type="text" name="" id="email">
+<video controls oncanplay="videoReady()" src="https://videos.pexels.com/video-files/1110140/1110140-sd_640_360_30fps.mp4"></video>
+<p id="vid"></p>
+  <script>
+
+            var vid=document.getElementById("vid")
+            function videoReady(){
+              vid.innerHTML="Video is ready to play"
+            }
+
+            window.onbeforeunload= ()=>{
+              var name=document.getElementById("name")
+              var email=document.getElementById("email")
+              if(name.value==="" || email.value===""){
+                return "you have unsave changes"
+              }
+            }
+  </script>
+</body>
+</html>

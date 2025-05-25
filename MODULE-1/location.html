@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Geolocation for Event Mapping</title>
+</head>
+<body>
+  <button id="findBtn">Find Nearby Events</button>
+  <p id="output"></p>
+
+  <script>
+    const button = document.getElementById('findBtn');
+    const output = document.getElementById('output');
+
+    button.onclick = () => {
+      if (!navigator.geolocation) {
+        output.textContent = 'Geolocation is not supported by your browser.';
+        return;
+      }
+
+      output.textContent = 'Locating…';
+
+      navigator.geolocation.getCurrentPosition(
+        position => {
+          const { latitude, longitude } = position.coords;
+          output.textContent = `Latitude: ${latitude.toFixed(5)}, Longitude: ${longitude.toFixed(5)}`;
+          
+        }
+      
+      );
+    };
+  </script>
+</body>
+</html>

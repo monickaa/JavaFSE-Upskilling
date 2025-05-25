@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration form</title>
+  <style>
+    .form{
+      
+      margin-left: 35%;
+      margin-top: 15px;
+    }
+    table{
+      padding: 20px;
+      margin: 20px;
+    }
+    label{
+      margin-top: 40px;
+    }
+    input,select,option{
+      margin-top:10px;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="form">
+    <form action="" onsubmit="fun(event)">
+      
+      <table>
+        
+        <tr><td>
+          <label for="">Name</label></td><td><input type="text" name="name" id="name" placeholder="Enter your name" autofocus required></td></tr>
+          <tr><td><label for="">Email</label></td><td><input type="email" name="name" id="email" placeholder="Enter your email" required></td></tr>
+          <tr><td><label for="">EventType</label></td>
+            <td><select name="" id="">
+              
+              <option value="">Music</option>
+              <option value="">Dance</option>
+            </select></td></tr>
+            <tr>
+              <td><label for="">Message</label></td><td><textarea name="" id=""></textarea autofocus></td></tr>
+                <tr><td><button id="btn" type="submit">Submit</button></td></tr>
+              </table>
+              
+              
+            </form>
+            <output id="success"></output>
+          </div>
+          <video  controls oncanplay="videoReady()" src="https://videos.pexels.com/video-files/1110140/1110140-sd_640_360_30fps.mp4"></video>
+          <p id="vid"></p>
+          <script>
+            var success=document.getElementById("success")
+            function fun(event){
+              event.preventDefault()
+              success.innerHTML="Resgitration successful"
+            }
+           
+          </script>
+        </body>
+        </html>

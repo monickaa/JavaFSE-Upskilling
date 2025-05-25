@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event</title>
+</head>
+<body>
+  <label for="phn">phnNo</label> <input id="phn" type="text" onblur="validate()"><br>
+  <p id="validation"> </p>
+ <label for="event">Event</label> <select name="" id="event" onchange="fee()">
+    <option value="Music Fest">Music fest</option>
+    <option value="Dance Fest">Dance Fest</option>
+    <option value="Art Fest">Art fest</option>
+  </select>
+  <p id="fees"> </p>
+  <img id="size" style="height: 100px ;width: 100px; " src="download.jpeg" alt="" ondblclick=" enlarge()">
+  <textarea name="" id="txtarea" onkeypress="keypress()"></textarea>
+  <p id="count"> </p>
+</body>
+<script>
+  var size=document.getElementById("size")
+  var count=document.getElementById("count")
+  
+  
+  function enlarge(){
+    size.style.height="200px"
+    size.style.width="200px"
+  }
+  
+  counts=0;
+  function keypress(){
+    counts+=1;
+    count.innerHTML="the count is "+counts
+  }
+  
+  
+  function validate(){
+    var phn=document.getElementById("phn").value.trim()
+    var validation=document.getElementById("validation")
+    var num=/^\d{10}$/;
+    if(!num.test(phn)){
+      validation.innerHTML="Please enter a valid phn number"
+      
+    }
+    else{
+      validation.innerHTML=""
+    }
+  }
+
+function fee(){
+  var fees=document.getElementById("fees")
+  var fee
+  var event=document.getElementById("event").value
+  switch(event){
+    case "Music Fest" : fee="2000"; break;
+    case "Dance Fest" : fee="3000"; break;
+    case "Art Fest" : fee="4000"; break;
+  }
+  fees.innerHTML="the fees is "+fee
+}
+</script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Save User Preferences</title>
+</head>
+<body>
+  <label for="event">Select Event Type:</label>
+  <select id="event" onchange="savePreference()">
+    <option value="">--Select--</option>
+    <option value="Music">Music</option>
+    <option value="Dance">Dance</option>
+    <option value="Art">Art</option>
+  </select>
+  <button id="clear" onclick="clearPreference()">clear</button>
+
+  <script>
+    
+      var event=document.getElementById("event")
+      var clear=document.getElementById("clear")
+      window.onload=()=>{
+        var saved= localStorage.getItem('prefer')
+        if(saved){
+          event.value=saved
+        }
+      }
+      function savePreference(){
+        localStorage.setItem('prefer',event.value)
+        sessionStorage.setItem('prefer',event.value)
+      }
+      function clearPreference(){
+localStorage.removeItem('prefer')
+        sessionStorage.removeItem('prefer')
+        event.value=''
+      }
+    
+  </script>
+</body>
+</html>
